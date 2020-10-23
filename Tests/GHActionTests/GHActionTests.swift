@@ -1,11 +1,22 @@
 import XCTest
+import Logging
+import LoggingGitHubActions
 @testable import GHAction
 
 final class GHActionTests: XCTestCase {
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
+
+        LoggingSystem.bootstrap { label in
+            if ProcessInfo.processInfo.environment["GITHUB_ACTIONS"] == "true" {
+                return GitHubActionsLogHandler.standardOutput(label: label)
+            } else {
+                return StreamLogHandler.standardOutput(label: label)
+            }
+        }
+
         XCTAssertEqual(GHAction().text, "Hello, World!")
+
+        let logger = Logger(label: "com.example.MyApp")
+        logger.error("Something went wrong")
     }
 }
