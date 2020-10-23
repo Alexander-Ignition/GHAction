@@ -17,6 +17,12 @@ final class GHActionTests: XCTestCase {
         XCTAssertEqual(GHAction().text, "Hello, World!")
 
         let logger = Logger(label: "com.example.MyApp")
+        logger.trace("trace")
+        logger.debug("debug")
+        logger.info("info")
+        logger.notice("notice")
+        logger.warning("warning")
         logger.error("Something went wrong")
+        logger.critical("critical")
     }
 }
