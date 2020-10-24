@@ -17,4 +17,4 @@ jobs:
       - name: Select Xcode version
         run: sudo xcode-select --switch /Applications/Xcode_12.app
       - name: Build and test
-        run: swift test --enable-code-coverage --disable-automatic-resolution | ./xc-gh
+        run: swift test --enable-code-coverage --disable-automatic-resolution
