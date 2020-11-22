@@ -17,6 +17,6 @@ jobs:
       - name: Select Xcode version
         run: sudo xcode-select --switch /Applications/Xcode_12.app
       - name: Install XCAudit
-        uses: Alexander-Ignition/XCAudit@v0.0.2
+        uses: Alexander-Ignition/XCAudit@v0.0.3
       - name: Build and test
         run: set -o pipefail && swift test --enable-code-coverage --disable-automatic-resolution 2>&1 | ./xc-gh
