@@ -17,7 +17,7 @@ jobs:
       - name: Select Xcode version
         run: sudo xcode-select --switch /Applications/Xcode_12.app
       - name: Install XCAudit
-        uses: Alexander-Ignition/XCAudit@v0.0.5
+        uses: Alexander-Ignition/XCAudit@v0.0.6
       - name: Test XCAudit
         run: |
           echo $PATH
