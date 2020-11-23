@@ -1,6 +1,8 @@
 name: Test
 on:
   push:
+    branches:
+      - main
     tags-ignore:
       - '**'
   pull_request:
@@ -19,4 +21,5 @@ jobs:
       - name: Install xcaudit
         uses: Alexander-Ignition/XCAudit@main
       - name: Build and test
-        run: set -o pipefail && swift test --enable-code-coverage --disable-automatic-resolution 2>&1 | xcaudit
+        run: swift test --enable-code-coverage --disable-automatic-resolution 2>&1 | xcaudit
+        shell: bash
