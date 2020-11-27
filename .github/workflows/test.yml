@@ -20,9 +20,9 @@ jobs:
         run: sudo xcode-select --switch /Applications/Xcode_12.app
       - name: test
         run: | 
-          echo $(ENV)
-          echo ${{ github.base_ref }}
-          echo ${{ github.head_ref }}
+          echo ${{ github.base_ref }} # GITHUB_BASE_REF
+          echo ${{ github.head_ref }} # GITHUB_HEAD_REF
+          git diff $GITHUB_BASE_REF $GITHUB_HEAD_REF --name-only
       - name: Install xcaudit
         uses: Alexander-Ignition/XCAudit@main
       - name: Build and test
