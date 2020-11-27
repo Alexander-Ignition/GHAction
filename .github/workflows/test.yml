@@ -22,7 +22,7 @@ jobs:
         run: | 
           echo ${{ github.base_ref }} # GITHUB_BASE_REF
           echo ${{ github.head_ref }} # GITHUB_HEAD_REF
-          git diff origin --name-only
+          git diff --name-only origin -- 
       - name: Install xcaudit
         uses: Alexander-Ignition/XCAudit@main
       - name: Build and test
