@@ -19,7 +19,10 @@ jobs:
       - name: Select Xcode version
         run: sudo xcode-select --switch /Applications/Xcode_12.app
       - name: test
-        run: echo $(ENV)
+        run: | 
+          echo $(ENV)
+          echo ${{ github.base_ref }}
+          echo ${{ github.head_ref }}
       - name: Install xcaudit
         uses: Alexander-Ignition/XCAudit@main
       - name: Build and test
